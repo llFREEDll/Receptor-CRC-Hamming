@@ -1,0 +1,41 @@
+!<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <title>Receptor CRC Hamming</title>
+  </head>
+  <body>
+    <div class="bar" >
+            <label>Receptor CRC Hamming</label>
+    </div>
+    <div class="txt">
+        <label class="lbl">Ingresa la trama</label>
+        <input id="trama" class="text">
+    </div>
+    <div class="txtm">
+        <label class="lbl">Ingresa el divisor en binario</label>
+        <input id="CRC" class="text">
+    </div>
+    <div class="txtm">
+      <label class="lbl">Tipo de paridad: </label>
+      <input type="radio" class="checkmark" id="par" name="paridad" value="Par">
+      <label class="lbl" for="par">Par</label><br>
+      <input type="radio" class="checkmark" id="impar" name="paridad" value="Impar">
+      <label class="lbl" for="impar">Impar</label><br>
+    </div>
+    <div class="txtm">
+        <button class="btn1" onclick="Evaluate()">Evaluar</button>
+    </div>
+    <div class="txtm">
+        <label id="tramaCorrecta" class="lbl">La trama correcta es: </label>
+    </div>
+    <div class="txtm">
+        <label id="binary" class="lbl">En decimal es: </label>
+    </div>
+    <div class="result">
+      <label id="ascii" class="lbl">El ASCII es: </label>
+    </div>
+    <script src="logic.js"></script>
+  </body>
+</html>
