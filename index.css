@@ -1,77 +1,32 @@
 *{
 	margin: 0;
     padding: 0;
-    font-family: monospace;
-    font-style: italic;
 }
 body{
-    background: #0c002b;
+	background: url("https://images.unsplash.com/photo-1585496965680-b3abff43f1ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80") no-repeat center center fixed;
+			 -webkit-background-size: cover;
+			 -moz-background-size: cover;
+			 -o-background-size: cover;
+			 background-size: cover;
 }
 .bar{
-    margin-left:50px;
-    margin-top: 0px;
-    margin-right: 50px;
-    margin-bottom: 50px;
+    height: 50px;
     font-size: 30px;
     background: #76def3;
     text-align: center;
     color: white;
+		margin: 20px 0 20px 0;
 }
-.txt{
+.main{
 
     background:rgba(0,0,0,.5);
-    display: flex;
-    justify-content: center;
     padding: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border-radius: 10px;
+		color: white;
 }
-.lbl{
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-right: 20px;
-    font-size: 25px;
-    color: white;
+.main div{
+	margin-left: 30%;
 }
-.text{
-    border-radius: 10px 10px 10px 10px;
-    color: black;
-    font-size: 18px;
-    padding: 0px;
-}
-.txtm{
-
-    background:rgba(0,0,0,.5);
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-.result{
-    background:rgba(0,0,0,.5);
-    display: flex;
-    justify-content: center;
-    margin-left: 50px;
-    margin-right: 50px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding:10px 20px 40px 20px;
-}
-.btn1{
-    margin-left: 20px;
-    margin-top: 10px;
-    padding: 15px;
-    font-size: 20px;
-    border-radius: 28px;
-    border: none;
-    background: #CC00AA;
-}
-.checkmark {
-  padding: 30px;
-  size: 15px;
-
+.m-50{
+	margin-left: 40% !important;
 }

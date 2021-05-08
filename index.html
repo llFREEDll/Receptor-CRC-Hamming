@@ -1,41 +1,57 @@
-!<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!DOCTYPE html>
+<html lang="es">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>Receptor CRC Hamming</title>
   </head>
   <body>
-    <div class="bar" >
-            <label>Receptor CRC Hamming</label>
+    <div class="container">
+      <div class=" bar" >
+              <label>Receptor CRC Hamming</label>
+      </div>
     </div>
-    <div class="txt">
-        <label class="lbl">Ingresa la trama</label>
-        <input id="trama" class="text">
+
+    <div class="container">
+      <div class="main">
+        <div class="form-group row">
+          <label  class="w-25" for="trama">Ingresa la trama </label>
+          <input id="trama" class="w-25 form-control">
+        </div>
+
+        <div class="form-group row">
+          <label  class="w-25" for="CRC">Ingresa el divisor en binario </label>
+          <input id="CRC" class="w-25 form-control">
+        </div>
+        <div class="form-group row m-50">
+          <label class="form-check-label">Tipo de paridad: </label>
+        </div>
+        <div class="form-check row m-50">
+          <input type="radio" class="form-check-input" id="par" name="paridad" value="Par">
+          <label class="form-check-label" for="par">Par</label><br>
+          <input type="radio" class="form-check-input" id="impar" name="paridad" value="Impar">
+          <label class="form-check-label" for="impar">Impar</label><br>
+        </div>
+        <div class="form-group row m-50" style="margin: 20px">
+          <button class="btn1 btn btn-primary " onclick="Evaluate()">Evaluar</button>
+        </div>
+        <div class="form-group row">
+          <label id="tramaCorrecta" >La trama correcta es: </label>
+        </div>
+        <div class="form-group row">
+          <label id="binary" >En decimal es: </label>
+        </div>
+        <div class="form-group row">
+          <label id="ascii">El ASCII es: </label>
+        </div>
+
+      </div>
     </div>
-    <div class="txtm">
-        <label class="lbl">Ingresa el divisor en binario</label>
-        <input id="CRC" class="text">
-    </div>
-    <div class="txtm">
-      <label class="lbl">Tipo de paridad: </label>
-      <input type="radio" class="checkmark" id="par" name="paridad" value="Par">
-      <label class="lbl" for="par">Par</label><br>
-      <input type="radio" class="checkmark" id="impar" name="paridad" value="Impar">
-      <label class="lbl" for="impar">Impar</label><br>
-    </div>
-    <div class="txtm">
-        <button class="btn1" onclick="Evaluate()">Evaluar</button>
-    </div>
-    <div class="txtm">
-        <label id="tramaCorrecta" class="lbl">La trama correcta es: </label>
-    </div>
-    <div class="txtm">
-        <label id="binary" class="lbl">En decimal es: </label>
-    </div>
-    <div class="result">
-      <label id="ascii" class="lbl">El ASCII es: </label>
-    </div>
+
     <script src="logic.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
   </body>
 </html>
