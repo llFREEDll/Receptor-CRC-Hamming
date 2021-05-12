@@ -38,15 +38,37 @@
           <button class="btn1 btn btn-primary " onclick="Evaluate()">Evaluar</button>
         </div>
         <div class="form-group row">
-          <label id="tramaCorrecta" >La trama correcta es: </label>
+          <p class="alert alert-danger w-50" style="text-align:center" hidden id="error"></p>
         </div>
-        <div class="form-group row">
-          <label id="binary" >En decimal es: </label>
-        </div>
-        <div class="form-group row">
-          <label id="ascii">El ASCII es: </label>
+        <div class="form-group row noMarginLeft">
+          <div class="alert alert-success w-50" hidden id="resultado">
+            <div class="form-group row noMarginLeft" >
+              <label id="tramaCorrecta" >La trama correcta es: </label>
+            </div>
+            <div class="form-group row noMarginLeft">
+              <label id="binary" >En decimal es: </label>
+            </div>
+            <div class="form-group row noMarginLeft">
+              <label id="ascii">El ASCII es: </label>
+            </div>
+          </div>
         </div>
 
+
+      </div>
+    </div>
+
+    <div class="container" style="margin-top:60px">
+      <div class="main2">
+        <h1>¿Cómo funciona?</h1>
+        <p>Este formulario recibe tres valores <br><br>
+            El primero es una secuencia de bits que representan un carácter que simula ser recibido, como si se enviara por la red, este viene tratado por el código Hamming y por la verificación CRC, para más información sobre estos algoritmos puedes visitar los siguientes enlaces: <a href="https://youtu.be/rB9aL1e3agw">CRC</a>, <a href="https://youtu.be/gQK9nROFX20">Hamming.</a> <br><br>
+            Asu ves este código puede ser generado con el <a href="https://llfreedll.github.io/Emisor-CRC-Hamming/">Emisor CRC Hamming</a> que es un proyecto construido a la par de este. <br><br>
+            Este primer dato tiene la finalidad de recibir una trama con bit cambiado (un “1” por un “0”, por ejemplo) y el algoritmo se encargará de corregir el bit errado y de dar el resultado correcto. <br><br>
+            El segundo valor recibe un polinomio en binario, mas conocido como una llave, con el cual se encripta el mensaje y este mismo se encarga de desencriptar. <br><br>
+            El tercer valor define la paridad si es par o impar, esto nos indica si los bits activos en la trama, los números “1”, que fueron enviados son pares o impares. <br><br>
+            NOTA: Si se alteran mas de un bit este método de detección de errores no funciona
+          </p>
       </div>
     </div>
 

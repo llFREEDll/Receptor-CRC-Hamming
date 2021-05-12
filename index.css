@@ -24,9 +24,21 @@ body{
     border-radius: 10px;
 		color: white;
 }
+.main2{
+
+    background:rgba(0,0,0,.5);
+    padding: 20px;
+    border-radius: 10px;
+		color: white;
+		text-align:center;
+
+}
 .main div{
 	margin-left: 30%;
 }
 .m-50{
 	margin-left: 40% !important;
+}
+.noMarginLeft{
+	margin-left: 0 !important;
 }

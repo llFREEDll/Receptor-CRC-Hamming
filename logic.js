@@ -7,88 +7,109 @@ var writeBinary = document.getElementById('binary');
 var writeTramaCorrecta = document.getElementById('tramaCorrecta');
 
 const Evaluate = () => {
+  let error = "";
   let aux = trama.value;
-  if(aux.length > 0){
-    let aux = inputCrc.value;
-    if(aux.length > 0){
-      if(aux.charAt(0) == 1){
-      if(radioPar.checked){
-        var asc = trama.value;
-        asc = MethodCrc(asc,inputCrc.value);
-        if (asc == "") {
-          writeTramaCorrecta.innerHTML = "La trama correcta es: " + trama.value;
-          asc = QuitarBitsDeParidad(trama.value);
-          asc = BinToDec(asc);
-          asc = String.fromCharCode(asc);
-          writeAscii.innerHTML = "El ASCII es: "  + asc;
-        }else{
-          var bits = GetPBits(trama.value);
-          asc = HammingPar(QuitarBitsDeParidad(trama.value));
-          asc = GetPBits(asc);
-          asc = evaluarBits(bits,asc);
-          asc = BinToDec(asc) - 1;
-          let aux = trama.value;
-          if(aux.charAt(asc)==0)
-            aux = aux.substr(0,asc) + "1" + aux.substr(asc + 1);
-          else
-            aux = aux.substr(0,asc) + "0" + aux.substr(asc + 1);
-            //alert(aux);
-            asc = MethodCrc(aux,inputCrc.value);
-          if (asc == "") {
-              writeTramaCorrecta.innerHTML = "La trama correcta es: " + aux;
-              asc = QuitarBitsDeParidad(trama.value);
-              asc = BinToDec(asc);
-              asc = String.fromCharCode(asc);
-              writeAscii.innerHTML = "El ASCII es: "  + asc;
-          }else{
-            writeTramaCorrecta.innerHTML = "Hay mas de un error en la trama!";
-            writeBinary.innerHTML = "";
-            writeAscii.innerHTML = "";
+  if(aux.length <= 0)
+    error +="Ingresa una trama<br>";
+  aux = inputCrc.value;
+  if(aux.length <= 0)
+    error += "Rellena la ecuacion CRC<br>";
+  if(aux.charAt(0) != 1)
+    error += "Tu ecuacion CRC no existe<br>";
+  if(!radioPar.checked && !radioImpar.checked)
+    error += "Selecciona par o impar<br>";
 
-          }
+  if (error == "") {
+    document.getElementById("resultado").hidden = false;
+    document.getElementById("error").hidden = true;
+    if(radioPar.checked){
+      var asc = trama.value;
+      asc = MethodCrc(asc,inputCrc.value);
+      if (asc == "") {
+        writeTramaCorrecta.innerHTML = "La trama correcta es: " + trama.value;
+        asc = QuitarBitsDeParidad(trama.value);
+        asc = BinToDec(asc);
+        asc = String.fromCharCode(asc);
+        writeAscii.innerHTML = "El ASCII es: "  + asc;
+      }else{
+        var bits = GetPBits(trama.value);
+        asc = HammingPar(QuitarBitsDeParidad(trama.value));
+        asc = GetPBits(asc);
+        asc = evaluarBits(bits,asc);
+        asc = BinToDec(asc) - 1;
+        let aux = trama.value;
+        if(aux.charAt(asc)==0)
+          aux = aux.substr(0,asc) + "1" + aux.substr(asc + 1);
+        else
+          aux = aux.substr(0,asc) + "0" + aux.substr(asc + 1);
+          //alert(aux);
+          asc = MethodCrc(aux,inputCrc.value);
+        if (asc == "") {
+            writeTramaCorrecta.innerHTML = "La trama correcta es: " + aux;
+            asc = QuitarBitsDeParidad(trama.value);
+            asc = BinToDec(asc);
+            asc = String.fromCharCode(asc);
+            writeAscii.innerHTML = "El ASCII es: "  + asc;
+        }else{
+          writeTramaCorrecta.innerHTML = "Hay mas de un error en la trama!";
+          writeBinary.innerHTML = "";
+          writeAscii.innerHTML = "";
 
         }
 
-      }else if(radioImpar.checked){
-        var asc = trama.value;
-        asc = MethodCrc(asc,inputCrc.value);
-        if (asc == "") {
-          writeTramaCorrecta.innerHTML = "La trama correcta es: " + trama.value;
-          asc = QuitarBitsDeParidad(trama.value);
-          asc = BinToDec(asc);
-          asc = String.fromCharCode(asc);
-          writeAscii.innerHTML = "El ASCII es: "  + asc;
-        }else{
-          var bits = GetPBits(trama.value);
-          asc = HammingImpar(QuitarBitsDeParidad(trama.value));
-          asc = GetPBits(asc);
-          asc = evaluarBits(bits,asc);
-          asc = BinToDec(asc) - 1;
-          let aux = trama.value;
-          if(aux.charAt(asc)==0)
-            aux = aux.substr(0,asc) + "1" + aux.substr(asc + 1);
-          else
-            aux = aux.substr(0,asc) + "0" + aux.substr(asc + 1);
-            //alert(aux);
-            asc = MethodCrc(aux,inputCrc.value);
-          if (asc == "") {
-              writeTramaCorrecta.innerHTML = "La trama correcta es: " + aux;
-              asc = QuitarBitsDeParidad(trama.value);
-              asc = BinToDec(asc);
-              asc = String.fromCharCode(asc);
-              writeAscii.innerHTML = "El ASCII es: "  + asc;
-          }else{
-            writeTramaCorrecta.innerHTML = "Hay mas de un error en la trama!";
-            writeBinary.innerHTML = "";
-            writeAscii.innerHTML = "";
+      }
 
-          }
+    }else if(radioImpar.checked){
+      var asc = trama.value;
+      asc = MethodCrc(asc,inputCrc.value);
+      if (asc == "") {
+        writeTramaCorrecta.innerHTML = "La trama correcta es: " + trama.value;
+        asc = QuitarBitsDeParidad(trama.value);
+        asc = BinToDec(asc);
+        asc = String.fromCharCode(asc);
+        writeAscii.innerHTML = "El ASCII es: "  + asc;
+      }else{
+        var bits = GetPBits(trama.value);
+        asc = HammingImpar(QuitarBitsDeParidad(trama.value));
+        asc = GetPBits(asc);
+        asc = evaluarBits(bits,asc);
+        asc = BinToDec(asc) - 1;
+        let aux = trama.value;
+        if(aux.charAt(asc)==0)
+          aux = aux.substr(0,asc) + "1" + aux.substr(asc + 1);
+        else
+          aux = aux.substr(0,asc) + "0" + aux.substr(asc + 1);
+          //alert(aux);
+          asc = MethodCrc(aux,inputCrc.value);
+        if (asc == "") {
+            writeTramaCorrecta.innerHTML = "La trama correcta es: " + aux;
+            asc = QuitarBitsDeParidad(trama.value);
+            asc = BinToDec(asc);
+            asc = String.fromCharCode(asc);
+            writeAscii.innerHTML = "El ASCII es: "  + asc;
+        }else{
+          writeTramaCorrecta.innerHTML = "Hay mas de un error en la trama!";
+          writeBinary.innerHTML = "";
+          writeAscii.innerHTML = "";
 
         }
-      }else alert("Selecciona par o impar");
-    }else alert("Tu ecuacion CRC no existe");
-  }else alert("Rellena la ecuacion CRC");
-}else alert("Ingresa una trama");
+
+      }
+    }
+  }else {
+    document.getElementById("error").hidden = false;
+    document.getElementById("resultado").hidden = true;
+    document.getElementById("error").innerHTML = error;
+  }
+//
+//   if(aux.length > 0){
+//     let aux = inputCrc.value;
+//     if(aux.length > 0){
+//       if(aux.charAt(0) == 1){
+//       }else alert("Selecciona par o impar");
+//     }else alert("Tu ecuacion CRC no existe");
+//   }else alert("Rellena la ecuacion CRC");
+// }else alert("Ingresa una trama");
 
 }
 const evaluarBits = (cad1 , cad2) => {
