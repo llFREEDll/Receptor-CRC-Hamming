@@ -6,14 +6,27 @@ var writeAscii = document.getElementById('ascii');
 var writeBinary = document.getElementById('binary');
 var writeTramaCorrecta = document.getElementById('tramaCorrecta');
 
+const isBinary = input =>{
+  var isBin = true;
+  for (var i = 0; i < input.length; i++) {
+    if (input.charAt(i) != "1" && input.charAt(i) != "0")
+      isBin = false;
+  }
+  return isBin;
+}
+
 const Evaluate = () => {
   let error = "";
   let aux = trama.value;
   if(aux.length <= 0)
     error +="Ingresa una trama<br>";
+  else if(!isBinary(aux))
+    error +="Ingresa una trama en binario<br>";
   aux = inputCrc.value;
   if(aux.length <= 0)
     error += "Rellena la ecuacion CRC<br>";
+  else if (!isBinary(aux))
+    error += "La ecuacion CRC tiene que ser binaria<br>";
   if(aux.charAt(0) != 1)
     error += "Tu ecuacion CRC no existe<br>";
   if(!radioPar.checked && !radioImpar.checked)
