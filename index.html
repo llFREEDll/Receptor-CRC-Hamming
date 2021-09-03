@@ -3,54 +3,70 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
     <title>Receptor CRC Hamming</title>
   </head>
   <body>
-    <div class="container">
-      <div class=" bar" >
-              <label>Receptor CRC Hamming</label>
+
+      <div class="container my-5 bar" >
+              <h1>Receptor CRC Hamming</h1>
       </div>
-    </div>
 
     <div class="container">
       <div class="main">
-        <div class="form-group row">
-          <label  class="w-25" for="trama">Ingresa la trama </label>
-          <input id="trama" class="w-25 form-control">
-        </div>
+        <div class="row  g-2 py-3 mx-5">
+          <div class="col-6 text-white">
+            <label for="trama" class="col-form-label">Ingresa la trama</label>
+          </div>
+          <div class="col-6">
+            <input type="number" id="trama" class="form-control">
+          </div>
+      </div>
 
-        <div class="form-group row">
-          <label  class="w-25" for="CRC">Ingresa el divisor en binario </label>
-          <input id="CRC" class="w-25 form-control">
-        </div>
-        <div class="form-group row m-50">
+
+      <div class="row  g-2 py-3 mx-5">
+          <div class="col-6 text-white">
+            <label for="CRC" class="col-form-label">Ingresa el divisor en binario</label>
+          </div>
+          <div class="col-6">
+            <input type="number" id="CRC" class="form-control">
+          </div>
+      </div>
+        
+
+        <div class="text-center">
           <label class="form-check-label">Tipo de paridad: </label>
         </div>
-        <div class="form-check row m-50">
-          <input type="radio" class="form-check-input" id="par" name="paridad" value="Par">
-          <label class="form-check-label" for="par">Par</label><br>
-          <input type="radio" class="form-check-input" id="impar" name="paridad" value="Impar">
-          <label class="form-check-label" for="impar">Impar</label><br>
+        <div class="text-center">
+          
+          <div class="mt-3">
+            <input type="radio" class="form-check-input" id="par" name="paridad" value="Par"/>
+            <label class="form-check-label" for="par">Par</label>
+          </div>
+
+          <div class="my-3">
+            <input type="radio" class="form-check-input" id="impar" name="paridad" value="Impar"/>
+            <label class="form-check-label" for="impar">Impar</label>
+          </div>
+          
         </div>
-        <div class="form-group row m-50" style="margin: 20px">
-          <button class="btn1 btn btn-primary " onclick="Evaluate()">Evaluar</button>
+
+
+        <div class="text-center" style="margin: 20px">
+          <button class="btn btn-primary " onclick="Evaluate()">Evaluar</button>
         </div>
-        <div class="form-group row">
-          <p class="alert alert-danger w-50" style="text-align:center" hidden id="error"></p>
+
+
+         <div class="text-center ">
+          <p class="alert alert-danger" style="text-align:center" hidden id="error"></p>
         </div>
-        <div class="form-group row noMarginLeft">
-          <div class="alert alert-success w-50" hidden id="resultado">
-            <div class="form-group row noMarginLeft" >
-              <label id="tramaCorrecta" >La trama correcta es: </label>
-            </div>
-            <div class="form-group row noMarginLeft">
-              <label id="binary" >En decimal es: </label>
-            </div>
-            <div class="form-group row noMarginLeft">
+
+        <div class="text-center">
+          <div class="alert alert-success" hidden id="resultado">
+              <label id="tramaCorrecta" >La trama correcta es: </label><br/>
+              <label id="binary" >En decimal es: </label><br/>
               <label id="ascii">El ASCII es: </label>
-            </div>
           </div>
         </div>
 
@@ -63,7 +79,7 @@
         <h1>¿Cómo funciona?</h1>
         <p>Este formulario recibe tres valores <br><br>
             El primero es una secuencia de bits que representan un carácter que simula ser recibido, como si se enviara por la red, este viene tratado por el código Hamming y por la verificación CRC, para más información sobre estos algoritmos puedes visitar los siguientes enlaces: <a href="https://youtu.be/rB9aL1e3agw">CRC</a>, <a href="https://youtu.be/gQK9nROFX20">Hamming.</a> <br><br>
-            Asu ves este código puede ser generado con el <a href="https://llfreedll.github.io/Emisor-CRC-Hamming/">Emisor CRC Hamming</a> que es un proyecto construido a la par de este. <br><br>
+            A su vez este código puede ser generado con el <a href="https://llfreedll.github.io/Emisor-CRC-Hamming/">Emisor CRC Hamming</a> que es un proyecto construido a la par de este. <br><br>
             Este primer dato tiene la finalidad de recibir una trama con bit cambiado (un “1” por un “0”, por ejemplo) y el algoritmo se encargará de corregir el bit errado y de dar el resultado correcto. <br><br>
             El segundo valor recibe un polinomio en binario, mas conocido como una llave, con el cual se encripta el mensaje y este mismo se encarga de desencriptar. <br><br>
             El tercer valor define la paridad si es par o impar, esto nos indica si los bits activos en la trama, los números “1”, que fueron enviados son pares o impares. <br><br>
@@ -73,7 +89,7 @@
     </div>
 
     <script src="logic.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
   </body>
 </html>

@@ -1,21 +1,15 @@
-*{
-	margin: 0;
-    padding: 0;
-}
 body{
-	background: url("https://images.unsplash.com/photo-1585496965680-b3abff43f1ad?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80") no-repeat center center fixed;
+	background: url(https://images.unsplash.com/photo-1598662779094-110c2bad80b5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=815&q=80) no-repeat center center fixed;
 			 -webkit-background-size: cover;
 			 -moz-background-size: cover;
 			 -o-background-size: cover;
 			 background-size: cover;
 }
 .bar{
-    height: 50px;
-    font-size: 30px;
+    
     background: #76def3;
     text-align: center;
     color: white;
-		margin: 20px 0 20px 0;
 }
 .main{
 
@@ -33,12 +27,7 @@ body{
 		text-align:center;
 
 }
-.main div{
-	margin-left: 30%;
-}
-.m-50{
-	margin-left: 40% !important;
-}
+
 .noMarginLeft{
 	margin-left: 0 !important;
 }
